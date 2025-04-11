@@ -17,28 +17,33 @@ public class RomanNumbers
 
     public static int RomanNumberToInt(string romanNumber)
     {
-        // "IX" = 9
+        // "XI" = 11
         // "IV" = 4
         // "III" = 3
+
+        int result = 0;
         
         
-        for (int i = 0; i < number.Length; i++)
+        for (int i = 0; i < romanNumber.Length; i++)
         {
             // символ справа больше символа слева, значит число составное
-            if ((i + 1) < number.Length && (i + 1) > i)
+            if ((i + 1) < romanNumber.Length && (romanNumber[i + 1] > i))
             {
                 var romanToParse = string.Concat(i, (i + 1));
-                
+                result += RomanToArabic[romanNumber[i + 1]] - RomanToArabic[romanNumber[i]];
+            }
+            else
+            {
+                result += RomanToArabic[romanNumber[i]] + RomanToArabic[romanNumber[i + 1]];
             }
 
             // символ справа такой же 
-            if ((i + 1) < number.Length && (i + 1) = i)
+            if ((i + 1) < romanNumber.Length && (i + 1) = i)
             {
                 
             }
             
         }
         
-        int result = 0;
-    };
+    }
 }
